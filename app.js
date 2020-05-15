@@ -13,24 +13,23 @@ const newCitiesButton =  document.getElementById('newSet');
 
 
     document.addEventListener('DOMContentLoaded', createGamePieces);
-    finalSubmitButton.addEventListener('click', checkAnswers);
+    finalSubmitButton.addEventListener('click', showLoadingWheel);
     newCitiesButton.addEventListener('click', createGamePieces);
     document.querySelector('.playAgainButton').addEventListener('click', playAgain);
 
 
-//Get Country by Capital City json and parse it into an array
-
-
-
-//Event listeners to populate at the beginning of a game or when get new capital city set button pressed
-
-//When play again pressed, reset game
-
-
 //HELPER FUNCTIONS
+//Display Loading wheel
+function showLoadingWheel(){
+    document.querySelector('.loading').style.display = "block";
+    setTimeout(checkAnswers, 3000);
+}
+//Hide Loading wheel and actually 
 //Check Answers
 
 function checkAnswers(){
+    //Hide Loading wheel
+    document.querySelector('.loading').style.display = "none";
      
     //Get Array of capital names that were placed
     let userAnswers = []; 
@@ -42,14 +41,41 @@ function checkAnswers(){
 
         if (userAnswers[index] ==answers[index]){
             answersCorrect++;
+            
         }
 
-       // setHighlights(index, userAnswers[i] === answers[i], userAnswerID);
+       setHighlights(userAnswers[index] === answers[index], userAnswerID);
     }
     //Disable Buttons
-    //disableButtonsAndTiles();
+    disableButtonsAndTiles();
+    //alert user to game status
     setHeaderMessage(answersCorrect);
     
+}
+
+//Restrict user Input to the Play Again Button Only
+function disableButtonsAndTiles(){
+    newCitiesButton.disabled = true;
+    document.getElementById('submit').disabled = true;
+
+    let capitalTilesList = document.querySelectorAll('.capital');
+
+    console.log(capitalTilesList);
+
+    capitalTilesList.forEach( function(tile){
+        tile.draggable=false;
+    })
+
+}
+//Show user which answers they got correct
+function setHighlights( isGreen, userAnswerID) {
+    cardBody = document.querySelector(userAnswerID).parentElement
+    cardBody.classList.add('border');
+    if (isGreen ){    
+        cardBody.classList.add('border-success');
+    } else {
+        cardBody.classList.add('border-warning');
+    }
 }
 
 function setHeaderMessage(count){
@@ -73,7 +99,7 @@ function setHeaderMessage(count){
 
     document.querySelector('.heading').textContent = `Status: ${headerMessage}`;
     document.querySelector('.submessage').textContent = subMessage;
-
+    //Show play again button
     document.querySelector('.playAgain').style.display = "block";
 
 }
