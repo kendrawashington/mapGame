@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Know Your World Capitals?</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto my-1">
+                 <h1 class="text-center heading">Do You Know Your World Capitals?</h1>
+                 <p class="text-center submessage">Let's Find Out!</p>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-sm-8 mx-auto">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#instructionModal">Instructions</button>
+                
+                    <button type="button" id="newSet" class="btn btn-primary mr-1">Get New Capital Set</button>
+
+                    <button type="button" id="submit" class="btn btn-success" data-toggle="modal" data-target="#submitModal" disabled>Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row playAgain text-center my-2" style="display:none">
+            <button type="button" class="btn btn-info playAgainButton text-center ">Play Again</button>
+        </div>
+
+        <br>
+            <div class="row">
+                <h4 class="text-secondary mb-1 mx-auto">Countries</h4>
+            </div>
+
+            <div class="row countryCards"></div>
+
+            <div class="row ">
+                <h4 class="text-secondary my-2 mx-auto">Capitals</h4>
+            </div>
+            <div class="border py-2  my-2 text-center capitalTiles"></div>
+
+
+        
+    </div>
+
+    <!--Modal Trigger For Instructions-->
+    <div class="modal fade" id="instructionModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Instructions</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Select a Capital from the List and drag it to its appropriate Country</p>
+                    <p>
+                
+                    <p>
+                    Press submit when you think you've matched everything perfectly.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok, Got It!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Trigger for For Final Submit-->
+    <div class="modal fade" id="submitModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ready to Submit!</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Are you sure you're ready to submit? </p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">I want to double check</button>
+                    <button type="button" class="btn btn-secondary" id="finalSubmit" data-dismiss="modal">I was born ready!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+    <script src="tileMoves.js"></script>
+    <script src="app.js"></script>    
+</body>
+</html>
