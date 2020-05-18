@@ -173,7 +173,7 @@ function setInnerHTML(array, randomNumSet) {
                 <h5 class="card-title text-info">
                     ${array[randomNum].country}
                 </h5>
-                <div class="card-text border border-secondary text-secondary text-center py-2 country country${i}"> 
+                <div class="card-text border border-secondary text-secondary text-center py-3 country country${i}"> 
                 </div>
             </div>
         </div>
